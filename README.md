@@ -38,7 +38,7 @@ A modern, AI-powered web scraping interface that combines web scraping capabilit
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/web-scraper-interface.git
+   git clone https://github.com/CHIKU1799/web-scraper-interface.git
    cd web-scraper-interface
    ```
 
