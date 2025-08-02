@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Scraper Interface</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3 sidebar">
+                <div class="sidebar-header">
+                    <h3><i class="fas fa-spider"></i> Web Scraper</h3>
+                    <p class="text-muted">AI-Powered Web Scraping & Analysis</p>
+                </div>
+                
+                <div class="scraping-form">
+                    <form id="scrapeForm">
+                        <div class="mb-3">
+                            <label for="urlInput" class="form-label">Website URL</label>
+                            <input type="url" class="form-control" id="urlInput" placeholder="https://example.com" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="methodSelect" class="form-label">Scraping Method</label>
+                            <select class="form-select" id="methodSelect">
+                                <option value="requests">Static Content (Fast)</option>
+                                <option value="selenium">Dynamic Content (Slower)</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary w-100" id="scrapeBtn">
+                            <i class="fas fa-search"></i> Scrape & Analyze
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="status-section">
+                    <div class="status-item">
+                        <i class="fas fa-circle text-success" id="modelStatus"></i>
+                        <span>LLM Models</span>
+                    </div>
+                    <div class="status-item">
+                        <i class="fas fa-circle text-secondary" id="scraperStatus"></i>
+                        <span>Scraper</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Main Content -->
+            <div class="col-md-9 main-content">
+                <div class="content-header">
+                    <h2>Scraped Content Analysis</h2>
+                    <div class="header-actions">
+                        <button class="btn btn-outline-secondary" id="exportBtn" disabled>
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                        <button class="btn btn-outline-secondary" id="clearBtn">
+                            <i class="fas fa-trash"></i> Clear
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Loading Spinner -->
+                <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p class="mt-3">Scraping website and analyzing content...</p>
+                </div>
+                
+                <!-- Results Section -->
+                <div id="resultsSection" style="display: none;">
+                    <div class="row">
+                        <!-- Structured Data -->
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5><i class="fas fa-brain"></i> AI Analysis</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div id="structuredData"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Raw Data -->
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5><i class="fas fa-code"></i> Raw Data</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div id="rawData"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Links and Images -->
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5><i class="fas fa-link"></i> Extracted Links</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div id="extractedLinks"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5><i class="fas fa-image"></i> Extracted Images</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div id="extractedImages"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Welcome Message -->
+                <div id="welcomeMessage" class="welcome-message">
+                    <div class="text-center">
+                        <i class="fas fa-globe fa-3x text-primary mb-4"></i>
+                        <h3>Welcome to Web Scraper Interface</h3>
+                        <p class="text-muted">Enter a URL above to start scraping and analyzing web content with AI</p>
+                        <div class="features">
+                            <div class="feature-item">
+                                <i class="fas fa-robot"></i>
+                                <span>AI-Powered Analysis</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-bolt"></i>
+                                <span>Fast Processing</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-chart-bar"></i>
+                                <span>Structured Output</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html> 
