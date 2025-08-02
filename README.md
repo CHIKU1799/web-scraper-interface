@@ -253,8 +253,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 If you encounter any issues or have questions:
 
 1. Check the [Troubleshooting](#troubleshooting) section
-2. Open an [Issue](https://github.com/YOUR_USERNAME/web-scraper-interface/issues)
-3. Create a [Discussion](https://github.com/YOUR_USERNAME/web-scraper-interface/discussions)
+2. Open an [Issue](https://github.com/CHIKU1799/web-scraper-interface/issues)
+3. Create a [Discussion](https://github.com/CHIKU1799/web-scraper-interface/discussions)
 
 ---
 
